@@ -10,13 +10,12 @@ public class ExceptionHandlerController {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleException(Exception e) {
-        return ResponseEntity.status(500).body(ErrorResponse.builder().error(e.getMessage()).build());
+        return ResponseEntity.status(500).body(new ErrorResponse(e.getMessage()));
     }
 
     @ExceptionHandler(HttpClientErrorException.class)
     public ResponseEntity<ErrorResponse> handleHttpClientErrorException(HttpClientErrorException e) {
-        return ResponseEntity.status(e.getStatusCode()).body(ErrorResponse.builder().error(e.getMessage()).build());
+        return ResponseEntity.status(e.getStatusCode()).body(new ErrorResponse(e.getMessage()));
     }
-
 
 }

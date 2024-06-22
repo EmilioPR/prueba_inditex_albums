@@ -1,7 +1,7 @@
 package org.prueba.microservicio.hexagonal.domain.repository;
 
-import org.prueba.microservicio.hexagonal.domain.Album;
-import org.prueba.microservicio.hexagonal.domain.Photo;
+import org.prueba.microservicio.hexagonal.domain.model.Album;
+import org.prueba.microservicio.hexagonal.domain.model.Photo;
 
 import java.util.List;
 

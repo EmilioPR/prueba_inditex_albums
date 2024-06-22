@@ -1,6 +1,6 @@
 package org.prueba.microservicio.hexagonal.domain.service;
 
-import org.prueba.microservicio.hexagonal.domain.AlbumListDto;
+import org.prueba.microservicio.hexagonal.domain.model.AlbumListDto;
 
 public interface AlbumService {
 

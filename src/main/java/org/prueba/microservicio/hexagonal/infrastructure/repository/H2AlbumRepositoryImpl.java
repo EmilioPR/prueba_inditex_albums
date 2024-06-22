@@ -2,7 +2,7 @@ package org.prueba.microservicio.hexagonal.infrastructure.repository;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
-import org.prueba.microservicio.hexagonal.domain.Album;
+import org.prueba.microservicio.hexagonal.domain.model.Album;
 import org.prueba.microservicio.hexagonal.domain.repository.AlbumRepository;
 import org.prueba.microservicio.hexagonal.infrastructure.model.jpa.JpaAlbum;
 

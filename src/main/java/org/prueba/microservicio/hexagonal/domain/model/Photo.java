@@ -1,4 +1,4 @@
-package org.prueba.microservicio.hexagonal.domain;
+package org.prueba.microservicio.hexagonal.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,7 +1,7 @@
 package org.prueba.microservicio.hexagonal.infrastructure.repository;
 
-import org.prueba.microservicio.hexagonal.domain.Album;
-import org.prueba.microservicio.hexagonal.domain.Photo;
+import org.prueba.microservicio.hexagonal.domain.model.Album;
+import org.prueba.microservicio.hexagonal.domain.model.Photo;
 import org.prueba.microservicio.hexagonal.domain.repository.SourceRepository;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;

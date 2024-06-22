@@ -6,9 +6,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.prueba.microservicio.hexagonal.domain.Album;
-import org.prueba.microservicio.hexagonal.domain.AlbumListDto;
-import org.prueba.microservicio.hexagonal.domain.Photo;
+import org.prueba.microservicio.hexagonal.domain.model.Album;
+import org.prueba.microservicio.hexagonal.domain.model.AlbumListDto;
+import org.prueba.microservicio.hexagonal.domain.model.Photo;
 import org.prueba.microservicio.hexagonal.domain.repository.AlbumRepository;
 import org.prueba.microservicio.hexagonal.domain.repository.PhotoRepository;
 import org.prueba.microservicio.hexagonal.domain.repository.SourceRepository;
@@ -49,9 +49,9 @@ class AlbumServiceImplTest {
 
         assertAll(
                 () -> assertNotNull(albumListDto),
-                () -> assertEquals(albums.size(), albumListDto.getAlbums().size()),
+                () -> assertEquals(albums.size(), albumListDto.albums().size()),
                 () -> IntStream.range(0, albums.size()).forEach(i -> {
-                    Album album = albumListDto.getAlbums().get(i);
+                    Album album = albumListDto.albums().get(i);
                     Photo photo = album.getPhotos().get(0);
 
                     assertEquals(albums.get(i).getId(), album.getId());
@@ -87,9 +87,9 @@ class AlbumServiceImplTest {
 
         assertAll(
                 () -> assertNotNull(albumListDto),
-                () -> assertEquals(albums.size(), albumListDto.getAlbums().size()),
+                () -> assertEquals(albums.size(), albumListDto.albums().size()),
                 () -> IntStream.range(0, albums.size()).forEach(i -> {
-                    Album album = albumListDto.getAlbums().get(i);
+                    Album album = albumListDto.albums().get(i);
                     Photo photo = album.getPhotos().get(0);
 
                     assertEquals(albums.get(i).getId(), album.getId());

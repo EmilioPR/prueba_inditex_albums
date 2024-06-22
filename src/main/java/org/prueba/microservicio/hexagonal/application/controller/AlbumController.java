@@ -1,6 +1,6 @@
 package org.prueba.microservicio.hexagonal.application.controller;
 
-import org.prueba.microservicio.hexagonal.domain.AlbumListDto;
+import org.prueba.microservicio.hexagonal.domain.model.AlbumListDto;
 import org.prueba.microservicio.hexagonal.domain.service.AlbumService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -69,7 +70,8 @@ class AlbumControllerIntegrationTest {
     }
 
     private String getResourceFileAsString(String fileName) throws IOException, URISyntaxException {
-        return Files.readString(Paths.get(getClass().getClassLoader().getResource(fileName).toURI()));
+        return Files.readString(Paths.get(Objects.requireNonNull(getClass().getClassLoader().getResource(fileName))
+                .toURI()));
     }
 
     private void setupWireMockStub(String url, String responseFile) throws IOException, URISyntaxException {

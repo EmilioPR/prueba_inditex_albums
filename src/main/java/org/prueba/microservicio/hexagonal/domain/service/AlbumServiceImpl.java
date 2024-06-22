@@ -1,8 +1,8 @@
 package org.prueba.microservicio.hexagonal.domain.service;
 
-import org.prueba.microservicio.hexagonal.domain.Album;
-import org.prueba.microservicio.hexagonal.domain.AlbumListDto;
-import org.prueba.microservicio.hexagonal.domain.Photo;
+import org.prueba.microservicio.hexagonal.domain.model.Album;
+import org.prueba.microservicio.hexagonal.domain.model.AlbumListDto;
+import org.prueba.microservicio.hexagonal.domain.model.Photo;
 import org.prueba.microservicio.hexagonal.domain.repository.AlbumRepository;
 import org.prueba.microservicio.hexagonal.domain.repository.PhotoRepository;
 import org.prueba.microservicio.hexagonal.domain.repository.SourceRepository;
@@ -28,7 +28,7 @@ public class AlbumServiceImpl implements AlbumService {
 
     @Override
     public AlbumListDto getAlbumListFromBBDD() {
-        return AlbumListDto.builder().albums(albumRepository.findAllAlbums()).build();
+        return new AlbumListDto(albumRepository.findAllAlbums());
     }
 
     @Override
@@ -40,7 +40,7 @@ public class AlbumServiceImpl implements AlbumService {
 
         albumList.forEach(albumDto -> albumDto.setPhotos(photoMap.get(albumDto.getId())));
 
-        return AlbumListDto.builder().albums(albumList).build();
+        return new AlbumListDto(albumList);
     }
 
     @Override
