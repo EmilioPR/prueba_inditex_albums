@@ -2,16 +2,17 @@ package org.prueba.microservicio.hexagonal.domain.service;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.prueba.microservicio.hexagonal.domain.model.Album;
 import org.prueba.microservicio.hexagonal.domain.model.AlbumListDto;
 import org.prueba.microservicio.hexagonal.domain.model.Photo;
 import org.prueba.microservicio.hexagonal.domain.repository.AlbumRepository;
 import org.prueba.microservicio.hexagonal.domain.repository.PhotoRepository;
 import org.prueba.microservicio.hexagonal.domain.repository.SourceRepository;
+import org.prueba.microservicio.hexagonal.test.TestBase;
+import org.prueba.microservicio.hexagonal.util.AlbumServiceImplTestConfig;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.Import;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -19,19 +20,19 @@ import java.util.stream.IntStream;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
-@ExtendWith(MockitoExtension.class)
-class AlbumServiceImplTest {
+@Import({AlbumServiceImplTestConfig.class})
+class AlbumServiceImplTest extends TestBase {
 
-    @Mock
+    @MockBean
     private AlbumRepository albumRepository;
 
-    @Mock
+    @MockBean
     private PhotoRepository photoRepository;
 
-    @Mock
+    @MockBean
     private SourceRepository dataService;
 
-    @InjectMocks
+    @Autowired
     private AlbumServiceImpl underTest;
 
     @Test
